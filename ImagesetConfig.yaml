@@ -1,0 +1,64 @@
+kind: ImageSetConfiguration
+apiVersion: mirror.openshift.io/v2alpha1
+mirror:
+  platform:
+    channels:
+    - name: stable-4.20
+      minVersion: 4.20.1
+      maxVersion: 4.20.1
+    graph: true
+  operators:
+    - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.20
+      packages:
+       - name: kubernetes-nmstate-operator
+         channels:
+         - name: stable
+       - name: kubevirt-hyperconverged
+         channels:
+         - name: stable
+       - name: compliance-operator
+         channels:
+         - name: stable
+       - name: cluster-logging
+         channels:
+         - name: stable-6.4
+       - name: loki-operator
+         channels:
+         - name: stable-6.4
+       - name: metallb-operator
+         channels:
+         - name: stable
+       - name: cluster-observability-operator
+         channels:
+         - name: stable
+       - name: cluster-kube-descheduler-operator
+         channels:
+         - name: stable
+       - name: netobserv-operator
+         channels:
+         - name: stable
+       - name: local-storage-operator
+       - name: mtv-operator
+       - name: redhat-oadp-operator
+       - name: numaresources-operator
+       - name: fence-agents-remediation
+         channels:
+         - name: stable
+       - name: node-healthcheck-operator
+         channels:
+         - name: stable
+       - name: node-maintenance-operator
+         channels:
+         - name: stable
+       - name: advanced-cluster-management
+         channels:
+         - name: release-2.14
+  additionalImages:
+    - name: registry.redhat.io/rhel8/support-tools
+    - name: quay.io/rh_ee_ajdesai/netapptrident/sig-storage/csi-attacher:v4.10.0
+    - name: quay.io/rh_ee_ajdesai/netapptrident/sig-storage/csi-node-driver-register:v2.15.0
+    - name: quay.io/rh_ee_ajdesai/netapptrident/sig-storage/csi-snapshotter:v8.3.0
+    - name: quay.io/rh_ee_ajdesai/netapptrident/sig-storage/csi-resizer:v1.14.0
+    - name: quay.io/rh_ee_ajdesai/netapptrident/sig-storage/csi-provisioner:v5.3.0
+    - name: docker.io/netapp/trident:25.10.0
+    - name: docker.io/netapp/trident-autosupport:25.10.0
