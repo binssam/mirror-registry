@@ -1,0 +1,63 @@
+kind: ImageSetConfiguration
+apiVersion: mirror.openshift.io/v1alpha2
+storageConfig:
+  registry:
+    imageURL: mirror-registry.gmr.in:8443/mirror/oc-mirror-metadata
+    skipTLS: true
+mirror:
+  platform:
+    channels:
+    - name: stable-4.17
+      minVersion: 4.17.8
+      maxVersion: 4.17.8
+      type: ocp
+  operators:
+  - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.17
+    packages:
+    - name: kubevirt-hyperconverged
+      channels:
+      - name: stable
+    - name: kubernetes-nmstate-operator
+      channels:
+      - name: stable
+    - name: cluster-logging
+      channels:
+      - name: stable-6.1
+    - name: loki-operator
+      channels:
+      - name: stable-6.1
+    - name: local-storage-operator
+      channels:
+      - name: stable
+    - name: mtv-operator
+      channels:
+      - name: release-v2.7
+    - name: mtc-operator
+      channels:
+      - name: release-v1.8
+    - name: odf-operator
+      channels:
+      - name: stable-4.17
+    - name: metallb-operator
+      channels:
+      - name: stable
+    - name: self-node-remediation
+      channels:
+      - name: stable
+    - name: node-healthcheck-operator
+      channels:
+      - name: stable
+    - name: fence-agents-remediation
+      channels:
+      - name: stable
+    - name: cluster-observability-operator
+      channels:
+      - name: stable
+    - name: node-observability-operator
+      channels:
+      - name: alpha
+  - catalog: registry.redhat.io/redhat/certified-operator-index:v4.17
+    packages:
+    - name: tigera-operator
+      channels:
+      - name: release-v1.36
