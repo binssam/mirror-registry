@@ -1,5 +1,5 @@
-apiVersion: mirror.openshift.io/v2
 kind: ImageSetConfiguration
+apiVersion: mirror.openshift.io/v2alpha1
 mirror:
   operators:
     - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.20
@@ -278,3 +278,4 @@ mirror:
           channels: [{name: fast}]
         - name: windows-machine-config-operator
           channels: [{name: stable}]
+
